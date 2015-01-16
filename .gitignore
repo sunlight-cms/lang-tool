@@ -1,0 +1,11 @@
+/input/*
+!/input/.gitkeep
+
+/output/*
+!/output/.gitkeep
+
+/template-current/*
+!/template-current/.gitkeep
+
+/template-old/*
+!/template-old/.gitkeep
