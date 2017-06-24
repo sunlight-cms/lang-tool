@@ -24,7 +24,7 @@ class Processor
 
                 foreach ($old->entries as $oldKey => $oldVal) {
                     if ($oldVal === $newVal) {
-                        if (null === $previousKey) {
+                        if ($previousKey === null) {
                             $previousKey = $oldKey;
                         } else {
                             $previousKey = null;
@@ -33,7 +33,7 @@ class Processor
                     }
                 }
 
-                if (null !== $previousKey) {
+                if ($previousKey !== null) {
                     $renames[$newKey] = $previousKey;
                 }
             }
@@ -63,7 +63,7 @@ class Processor
                 $oldKey = null;
             }
 
-            if (null !== $oldKey && $old->entries[$oldKey] !== $val) {
+            if ($oldKey !== null && $old->entries[$oldKey] !== $val) {
                 $changes[$key] = true;
             }
         }
@@ -86,8 +86,8 @@ class Processor
         foreach ($target->entries as $key => &$val) {
             if (
                 isset($target->meta[$key])
-                && '' !== $val
-                && '' !== $target->meta[$key]
+                && $val !== ''
+                && $target->meta[$key] !== ''
             ) {
                 $valFirst = mb_substr($val, 0, 1);
                 $valFirstIsUpper = $valFirst === mb_strtoupper($valFirst);

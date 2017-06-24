@@ -26,7 +26,7 @@ $templates = Dictionary::fromDirEach($tool->getCurrentTemplateDir());
 $oldTemplate = Dictionary::fromDirMerged($tool->getOldTemplateDir());
 $input = Dictionary::fromDirMerged($tool->getInputDir(), $inputNames);
 
-if (0 === sizeof($input)) {
+if (sizeof($input) === 0) {
     error('Empty/invalid input dictionaries!');
 }
 

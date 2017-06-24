@@ -15,7 +15,7 @@ mb_internal_encoding('UTF-8');
 
 // error handler
 set_error_handler(function ($code, $message, $file = null, $line = null) {
-    if (0 !== ($code & error_reporting())) {
+    if (($code & error_reporting()) !== (0)) {
         throw new \ErrorException($message, 0, $code, $file, $line);
     } else {
         return true;
@@ -25,7 +25,7 @@ set_error_handler(function ($code, $message, $file = null, $line = null) {
 // class loader
 spl_autoload_register(function ($class) {
     if (
-        0 === strncmp($class, 'SunlightTools\\LangTool\\', 23)
+        strncmp($class, 'SunlightTools\\LangTool\\', 23) === 0
         && is_file($file = __DIR__ . '/' . str_replace('\\', '/', substr($class, 23)) . '.php')
     ) {
         include $file;

@@ -30,7 +30,7 @@ class Dictionary implements \Countable
      */
     public static function isValidFile(\SplFileInfo $file)
     {
-        return $file->isFile() && 0 === strcasecmp('php', $file->getExtension());
+        return $file->isFile() && strcasecmp('php', $file->getExtension()) === 0;
     }
 
     /**

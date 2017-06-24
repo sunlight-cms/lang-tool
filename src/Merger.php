@@ -44,7 +44,7 @@ class Merger
      */
     public function merge(&$missingCount = null, &$cleanedCount = null, &$caseFixCount = null)
     {
-        if (null !== $this->oldTemplate) {
+        if ($this->oldTemplate !== null) {
             $renames = $this->processor->findRenames($this->template, $this->oldTemplate);
         } else {
             $renames = array();
@@ -113,7 +113,7 @@ class Merger
     {
         $cleanedCount = 0;
 
-        if (null !== $this->oldTemplate) {
+        if ($this->oldTemplate !== null) {
             $templateChanges = $this->processor->findChanges($this->template, $this->oldTemplate, $renames);
         } else {
             $templateChanges = array();
@@ -126,7 +126,7 @@ class Merger
             }
 
             // clean outdated entry
-            if ('' !== $target->entries[$key]) {
+            if ($target->entries[$key] !== '') {
                 if (isset($target->meta[$key])) {
                     // use meta data check
                     if ($target->meta[$key] !== $val) {
